@@ -57,20 +57,20 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    override func viewWillAppear(animated: Bool) {
-        
-        //change background color accarding to time of day
-        let calendar = NSCalendar.currentCalendar()
-        let components = calendar.components(.Hour, fromDate: NSDate())
-        let hour = components.hour
-        
-        if hour > 19 || hour < 5 {
-            view.backgroundColor = UIColor.darkGrayColor()
-        } else {
-            view.backgroundColor = UIColor.lightGrayColor()
-        }
-
-    }
+//    override func viewWillAppear(animated: Bool) {
+//        
+//        //change background color accarding to time of day
+//        let calendar = NSCalendar.currentCalendar()
+//        let components = calendar.components(.Hour, fromDate: NSDate())
+//        let hour = components.hour
+//        
+//        if hour > 19 || hour < 5 {
+//            view.backgroundColor = UIColor.darkGrayColor()
+//        } else {
+//            view.backgroundColor = UIColor.lightGrayColor()
+//        }
+//
+//    }
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         
