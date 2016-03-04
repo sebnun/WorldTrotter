@@ -20,7 +20,12 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         mapView.delegate = self
         view = mapView
         
-        let segmentedControll = UISegmentedControl(items: ["Standard", "Hybrid", "Satellite"])
+        let standardString = NSLocalizedString("Standard", comment: "standar map view")
+        let hybridString = NSLocalizedString("Hybrid", comment: "hybrid map view")
+        let satelliteString = NSLocalizedString("Satellite", comment: "satellite map view")
+        
+        
+        let segmentedControll = UISegmentedControl(items: [standardString, hybridString, satelliteString])
         segmentedControll.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.5)
         segmentedControll.selectedSegmentIndex = 0
         segmentedControll.translatesAutoresizingMaskIntoConstraints = false
@@ -36,18 +41,19 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         leadingConstraint.active = true
         trailingConstraint.active = true
         
+        let locateMeString = NSLocalizedString("Locate Me", comment: "Locate me")
         
         let button = UIButton(type: .System)
         button.frame = CGRectMake(0, 0, 50, 50)
-        button.setTitle("Locate Me", forState: .Normal)
+        button.setTitle(locateMeString, forState: .Normal)
         button.sizeToFit()
         button.translatesAutoresizingMaskIntoConstraints = false
-        //button.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.5)
+        button.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.5)
         view.addSubview(button)
         
         button.addTarget(self, action: "locateTapped:", forControlEvents: .TouchUpInside)
         
-        let buttonBottomConstraint = button.bottomAnchor.constraintEqualToAnchor(bottomLayoutGuide.topAnchor, constant: 0)
+        let buttonBottomConstraint = button.bottomAnchor.constraintEqualToAnchor(bottomLayoutGuide.topAnchor, constant: -8)
         let buttonTrailingConstraint = button.trailingAnchor.constraintEqualToAnchor(view.layoutMarginsGuide.trailingAnchor)
         
         buttonBottomConstraint.active = true
